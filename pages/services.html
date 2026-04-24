@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - VisionGuard</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%236366f1'/><g transform='translate(50,50)'><path d='M -15 -10 L 0 -25 L 15 -10 L 15 25 L -15 25 Z' fill='white' stroke='white' stroke-width='2'/><circle cx='0' cy='0' r='6' fill='%236366f1'/><path d='M -8 8 L 8 8' stroke='white' stroke-width='2' stroke-linecap='round'/></g></svg>">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>VisionGuard</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon" id="themeToggle"></i>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Header -->
+    <section class="services-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive surveillance solutions tailored to your needs</p>
+        </div>
+    </section>
+
+    <!-- Flashcard Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Advanced Detection Services</h2>
+            
+            <div class="flashcards-container">
+                <!-- Face Detection Service Card -->
+                <div class="service-flashcard" id="face-detection">
+                    <div class="flashcard-inner">
+                        <!-- Front -->
+                        <div class="flashcard-front">
+                            <div class="service-icon">
+                                <i class="fas fa-face-smile"></i>
+                            </div>
+                            <h3>Face Detection</h3>
+                            <p>Identity verification</p>
+                            <div class="flip-hint">
+                                <i class="fas fa-redo"></i> Click to explore
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="flashcard-back">
+                            <div class="service-content">
+                                <h3>Face Detection</h3>
+                                <p>Real-time facial recognition and identity verification</p>
+                                
+                                <div class="features-list">
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>Person identification</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>Authorization status</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>Live video stream support</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>Upload image analysis</span>
+                                    </div>
+                                </div>
+
+                                <p class="service-description">
+                                    Verify personnel identity and authorization status with real-time facial recognition.
+                                </p>
+
+                                <div class="service-actions">
+                                    <button class="btn btn-small btn-primary" onclick="openModal('face-live')">
+                                        <i class="fas fa-video"></i> Live Video
+                                    </button>
+                                    <button class="btn btn-small btn-secondary" onclick="openModal('face-upload')">
+                                        <i class="fas fa-image"></i> Upload Image
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PPE Detection Service Card -->
+                <div class="service-flashcard" id="ppe-detection">
+                    <div class="flashcard-inner">
+                        <!-- Front -->
+                        <div class="flashcard-front">
+                            <div class="service-icon">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <h3>PPE Detection</h3>
+                            <p>Safety equipment monitoring</p>
+                            <div class="flip-hint">
+                                <i class="fas fa-redo"></i> Click to explore
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="flashcard-back">
+                            <div class="service-content">
+                                <h3>PPE Detection & Compliance</h3>
+                                <p>Ensure workplace safety with real-time equipment verification</p>
+                                
+                                <div class="features-list">
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>Helmet detection</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>Safety vest detection</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>Gloves detection</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>Safety boots detection</span>
+                                    </div>
+                                </div>
+
+                                <p class="service-description">
+                                    Automatically detects whether personnel are wearing required protective equipment. 
+                                    Immediate alerts for non-compliance.
+                                </p>
+
+                                <div class="service-actions">
+                                    <button class="btn btn-small btn-primary" onclick="openModal('ppe-live')">
+                                        <i class="fas fa-video"></i> Live Video
+                                    </button>
+                                    <button class="btn btn-small btn-secondary" onclick="openModal('ppe-upload')">
+                                        <i class="fas fa-image"></i> Upload Image
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box Counting Service Card -->
+                <div class="service-flashcard" id="box-counting">
+                    <div class="flashcard-inner">
+                        <!-- Front -->
+                        <div class="flashcard-front">
+                            <div class="service-icon">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h3>Box Counting</h3>
+                            <p>Inventory optimization</p>
+                            <div class="flip-hint">
+                                <i class="fas fa-redo"></i> Click to explore
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="flashcard-back">
+                            <div class="service-content">
+                                <h3>Box Counting</h3>
+                                <p>Count the number of boxes in images and live video streams</p>
+                                
+                                <div class="features-list">
+                                    <div class="feature-item">
+                                        <i class="fas fa-list-ol"></i>
+                                        <span>Count total boxes detected</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-video"></i>
+                                        <span>Live video stream support</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-image"></i>
+                                        <span>Upload image analysis</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>Real-time detection</span>
+                                    </div>
+                                </div>
+
+                                <p class="service-description">
+                                    Upload an image or connect a live video feed to instantly count all boxes present. 
+                                    Perfect for inventory management and warehouse tracking.
+                                </p>
+
+                                <div class="service-actions">
+                                    <button class="btn btn-small btn-primary" onclick="openModal('box-live')">
+                                        <i class="fas fa-video"></i> Live Video
+                                    </button>
+                                    <button class="btn btn-small btn-secondary" onclick="openModal('box-upload')">
+                                        <i class="fas fa-image"></i> Upload Image
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Face Detection Modals -->
+    <div class="modal" id="face-live-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Face Detection - Live Video</h3>
+                <button class="close-btn" onclick="closeModal('face-live')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="video-container">
+                    <video id="face-live-video" autoplay playsinline></video>
+                    <div class="placeholder-message">
+                        <p>Live video feed will appear here</p>
+                        <p class="small-text">Face detection model integration</p>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="startFaceDetection()">
+                        <i class="fas fa-play"></i> Start Detection
+                    </button>
+                    <button class="btn btn-secondary" onclick="stopDetection()">
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                </div>
+                <div class="results-box" id="face-results">
+                    <p>Detection results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="face-upload-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Face Detection - Upload Image</h3>
+                <button class="close-btn" onclick="closeModal('face-upload')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                    <i class="fas fa-image"></i>
+                    <p>Drag and drop an image here</p>
+                    <p class="small-text">or</p>
+                    <input type="file" id="face-upload-input" accept="image/*" onchange="previewImage(event, 'face')">
+                    <label for="face-upload-input" class="file-label">Browse Files</label>
+                </div>
+                <img id="face-preview" class="preview-image" style="display:none;">
+                <button class="btn btn-primary" onclick="runFaceDetection()">
+                    <i class="fas fa-brain"></i> Run Detection
+                </button>
+                <div class="results-box" id="face-upload-results">
+                    <p>Results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PPE Modals -->
+    <div class="modal" id="ppe-live-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>PPE Detection - Live Video</h3>
+                <button class="close-btn" onclick="closeModal('ppe-live')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="video-container">
+                    <video id="ppe-live-video" autoplay playsinline></video>
+                    <div class="placeholder-message">
+                        <p>Live video feed will appear here</p>
+                        <p class="small-text">PPE detection model integration</p>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="startPPEDetection()">
+                        <i class="fas fa-play"></i> Start Detection
+                    </button>
+                    <button class="btn btn-secondary" onclick="stopDetection()">
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                </div>
+                <div class="results-box" id="ppe-results">
+                    <p>Detection results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="ppe-upload-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>PPE Detection - Upload Image</h3>
+                <button class="close-btn" onclick="closeModal('ppe-upload')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                    <i class="fas fa-image"></i>
+                    <p>Drag and drop an image here</p>
+                    <p class="small-text">or</p>
+                    <input type="file" id="ppe-upload-input" accept="image/*" onchange="previewImage(event, 'ppe')">
+                    <label for="ppe-upload-input" class="file-label">Browse Files</label>
+                </div>
+                <img id="ppe-preview" class="preview-image" style="display:none;">
+                <button class="btn btn-primary" onclick="runPPEDetection()">
+                    <i class="fas fa-brain"></i> Run Detection
+                </button>
+                <div class="results-box" id="ppe-upload-results">
+                    <p>Results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Box Counting Modals -->
+    <div class="modal" id="box-live-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Box Counting - Live Video</h3>
+                <button class="close-btn" onclick="closeModal('box-live')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="video-container">
+                    <video id="box-live-video" autoplay playsinline></video>
+                    <div class="placeholder-message">
+                        <p>Live video feed will appear here</p>
+                        <p class="small-text">Box counting model integration</p>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="startBoxCounting()">
+                        <i class="fas fa-play"></i> Start Detection
+                    </button>
+                    <button class="btn btn-secondary" onclick="stopDetection()">
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                </div>
+                <div class="results-box" id="box-results">
+                    <p>Detection results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="box-upload-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Box Counting - Upload Image</h3>
+                <button class="close-btn" onclick="closeModal('box-upload')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                    <i class="fas fa-image"></i>
+                    <p>Drag and drop an image here</p>
+                    <p class="small-text">or</p>
+                    <input type="file" id="box-upload-input" accept="image/*" onchange="previewImage(event, 'box')">
+                    <label for="box-upload-input" class="file-label">Browse Files</label>
+                </div>
+                <img id="box-preview" class="preview-image" style="display:none;">
+                <button class="btn btn-primary" onclick="runBoxCounting()">
+                    <i class="fas fa-brain"></i> Run Detection
+                </button>
+                <div class="results-box" id="box-upload-results">
+                    <p>Results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VisionGuard</h4>
+                <p>Advanced surveillance solutions for modern enterprises.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:contact@mitwpu.edu.in" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#face-detection">Face Detection</a></li>
+                    <li><a href="#ppe-detection">PPE Detection</a></li>
+                    <li><a href="#box-counting">Box Counting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 VisionGuard. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/services.js"></script>
+</body>
+</html>
+

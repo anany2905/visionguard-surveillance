@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionGuard - Intelligent Surveillance System</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%236366f1'/><g transform='translate(50,50)'><path d='M -15 -10 L 0 -25 L 15 -10 L 15 25 L -15 25 Z' fill='white' stroke='white' stroke-width='2'/><circle cx='0' cy='0' r='6' fill='%236366f1'/><path d='M -8 8 L 8 8' stroke='white' stroke-width='2' stroke-linecap='round'/></g></svg>">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>VisionGuard</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="pages/about.html" class="nav-link">About</a></li>
+                <li><a href="pages/services.html" class="nav-link">Services</a></li>
+                <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon" id="themeToggle"></i>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="text-gradient">Intelligent Surveillance</span>
+                    <br>
+                    Made Simple
+                </h1>
+                <p class="hero-description">
+                    Advanced surveillance system powered by Computer Vision. 
+                    Detect faces, identify PPE compliance, and optimize inventory management with cutting-edge AI technology.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='pages/services.html'">
+                        Explore Services
+                    </button>
+                    <button class="btn btn-secondary" onclick="window.location.href='pages/about.html'">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-face-smile"></i>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Our Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-face-smile"></i>
+                    </div>
+                    <h3>👤 Face Detection</h3>
+                    <p>Verify personnel identity and authorization status with real-time facial recognition technology.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>⛑️ PPE Detection</h3>
+                    <p>Ensure workplace safety by detecting helmets, vests, gloves, and boots with precision.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>📦 Box Counting</h3>
+                    <p>Automatically count the number of boxes in images or live video feeds for real-time inventory tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-box">
+                <h3>92%</h3>
+                <p>Detection Accuracy</p>
+            </div>
+            <div class="stat-box">
+                <h3>24/7</h3>
+                <p>Live Monitoring</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Highlight -->
+    <section class="key-features">
+        <div class="container">
+            <h2 class="section-title">Why Choose VisionGuard?</h2>
+            <div class="features-grid">
+                <div class="feature-highlight">
+                    <div class="highlight-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time Processing</h3>
+                    <p>Sub-millisecond latency for instant alerts and responses</p>
+                </div>
+                <div class="feature-highlight">
+                    <div class="highlight-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade encryption and secure data storage</p>
+                </div>
+                <div class="feature-highlight">
+                    <div class="highlight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Detailed reports and insights for decision making</p>
+                </div>
+                <div class="feature-highlight">
+                    <div class="highlight-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Access</h3>
+                    <p>Monitor your facility from anywhere, anytime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Secure Your Facility?</h2>
+            <p>Start monitoring today with our intelligent surveillance system</p>
+            <button class="btn btn-primary" onclick="window.location.href='pages/services.html'">
+                Get Started
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VisionGuard</h4>
+                <p>Advanced surveillance solutions for modern enterprises.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:contact@mitwpu.edu.in" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                    <li><a href="pages/services.html">Services</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="pages/services.html#face-detection">Face Detection</a></li>
+                    <li><a href="pages/services.html#ppe-detection">PPE Detection</a></li>
+                    <li><a href="pages/services.html#box-counting">Box Counting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 VisionGuard. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
