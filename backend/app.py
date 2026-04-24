@@ -5,6 +5,15 @@ import cv2
 import numpy as np
 import sys
 import os
+import logging
+import traceback
+
+# Configure logging for Render
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from models.ppe_detection.ppe_detection_model import PPEDetectionModel
@@ -17,12 +26,44 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Initialize models
-ppe_model = PPEDetectionModel(model_path=os.path.join(BASE_DIR, 'ppe_model', 'best.pt'))
-box_model = BoxCountingModel(model_path=os.path.join(BASE_DIR, 'box_model', 'best_fixed.pt'))
-face_model = FaceDetectionModel(dataset_path=os.path.join(BASE_DIR, 'face_model', 'dataset'))
+# Log important paths for debugging
+logger.info(f"BASE_DIR: {BASE_DIR}")
+logger.info(f"Contents of BASE_DIR: {os.listdir(BASE_DIR)}")
 
-print("All models initialized successfully")
+# Check model files exist before loading
+ppe_model_path = os.path.join(BASE_DIR, 'ppe_model', 'best.pt')
+box_model_path = os.path.join(BASE_DIR, 'box_model', 'best_fixed.pt')
+face_dataset_path = os.path.join(BASE_DIR, 'face_model', 'dataset')
+
+logger.info(f"PPE model path: {ppe_model_path} | exists: {os.path.exists(ppe_model_path)}")
+logger.info(f"Box model path: {box_model_path} | exists: {os.path.exists(box_model_path)}")
+logger.info(f"Face dataset path: {face_dataset_path} | exists: {os.path.exists(face_dataset_path)}")
+
+# Initialize models with error handling
+ppe_model = None
+box_model = None
+face_model = None
+
+try:
+    ppe_model = PPEDetectionModel(model_path=ppe_model_path)
+    logger.info(f"PPE model loaded: {ppe_model.model is not None}")
+except Exception as e:
+    logger.error(f"Failed to load PPE model: {e}")
+    logger.error(traceback.format_exc())
+
+try:
+    box_model = BoxCountingModel(model_path=box_model_path)
+    logger.info(f"Box model loaded: {box_model.model is not None}")
+except Exception as e:
+    logger.error(f"Failed to load Box model: {e}")
+    logger.error(traceback.format_exc())
+
+try:
+    face_model = FaceDetectionModel(dataset_path=face_dataset_path)
+    logger.info(f"Face model initialized. Dataset exists: {os.path.exists(face_dataset_path) if face_model else False}")
+except Exception as e:
+    logger.error(f"Failed to load Face model: {e}")
+    logger.error(traceback.format_exc())
 
 # ==========================
 # Frontend Routes
@@ -62,6 +103,8 @@ def decode_image(data):
 def face_detect():
     if request.method == 'OPTIONS':
         return '', 200
+    if face_model is None:
+        return jsonify({'error': 'Face detection model not loaded', 'detected': False}), 503
     try:
         frame, error = decode_image(request.json)
         if error:
@@ -69,13 +112,16 @@ def face_detect():
         results = face_model.detect_faces(frame)
         return jsonify(results)
     except Exception as e:
-        print(f"Face detection error: {e}")
+        logger.error(f"Face detection error: {e}")
+        logger.error(traceback.format_exc())
         return jsonify({'error': str(e)}), 500
 
 @app.route('/api/ppe_detect', methods=['POST', 'OPTIONS'])
 def ppe_detect():
     if request.method == 'OPTIONS':
         return '', 200
+    if ppe_model is None or ppe_model.model is None:
+        return jsonify({'error': 'PPE detection model not loaded', 'detected': False}), 503
     try:
         frame, error = decode_image(request.json)
         if error:
@@ -83,13 +129,16 @@ def ppe_detect():
         results = ppe_model.detect_ppe(frame)
         return jsonify(results)
     except Exception as e:
-        print(f"PPE error: {e}")
+        logger.error(f"PPE error: {e}")
+        logger.error(traceback.format_exc())
         return jsonify({'error': str(e)}), 500
 
 @app.route('/api/box_count', methods=['POST', 'OPTIONS'])
 def box_count():
     if request.method == 'OPTIONS':
         return '', 200
+    if box_model is None or box_model.model is None:
+        return jsonify({'error': 'Box counting model not loaded', 'detected': False}), 503
     try:
         frame, error = decode_image(request.json)
         if error:
@@ -97,19 +146,23 @@ def box_count():
         results = box_model.detect_boxes(frame)
         return jsonify(results)
     except Exception as e:
-        print(f"Box error: {e}")
+        logger.error(f"Box error: {e}")
+        logger.error(traceback.format_exc())
         return jsonify({'error': str(e)}), 500
 
 @app.route('/health', methods=['GET'])
 def health():
     return jsonify({
         'status': 'healthy',
-        'ppe_loaded': ppe_model.model is not None,
-        'box_loaded': box_model.model is not None,
-        'face_loaded': face_model.dataset_path is not None and os.path.exists(face_model.dataset_path)
+        'base_dir': BASE_DIR,
+        'ppe_loaded': ppe_model is not None and ppe_model.model is not None,
+        'box_loaded': box_model is not None and box_model.model is not None,
+        'face_loaded': face_model is not None and face_model.dataset_path is not None and os.path.exists(face_model.dataset_path),
+        'ppe_path_exists': os.path.exists(ppe_model_path),
+        'box_path_exists': os.path.exists(box_model_path),
+        'face_path_exists': os.path.exists(face_dataset_path)
     })
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=False, port=port, host='0.0.0.0')
-
