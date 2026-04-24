@@ -13,7 +13,7 @@ Pillow==11.0.0
 
 # Deep Learning (CPU-only PyTorch)
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.6.0+cpu
+torch==2.11.0+cpu
 torchvision==0.21.0+cpu
 ultralytics==8.3.0
 
