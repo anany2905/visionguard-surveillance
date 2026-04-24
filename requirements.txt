@@ -1,5 +1,5 @@
 # VisionGuard - Production Requirements
-# Install with: pip install -r requirements.txt
+# Compatible with Python 3.12
 
 # Web Framework
 Flask==3.0.0
@@ -11,12 +11,12 @@ Werkzeug==3.0.1
 opencv-python-headless==4.8.1.78
 numpy==1.26.3
 Pillow==10.2.0
-scipy==1.11.4
+scipy==1.12.0
 
 # Deep Learning
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.1.0+cpu
-torchvision==0.16.0+cpu
+torch==2.2.0+cpu
+torchvision==0.17.0+cpu
 ultralytics==8.0.196
 
 # Face Recognition
