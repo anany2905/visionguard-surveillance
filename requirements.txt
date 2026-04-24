@@ -11,8 +11,8 @@ opencv-python-headless==4.11.0.86
 numpy==2.2.0
 Pillow==11.0.0
 
-# Deep Learning (CPU-only, much smaller)
---index-url https://download.pytorch.org/whl/cpu
+# Deep Learning (CPU-only PyTorch)
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.6.0+cpu
 torchvision==0.21.0+cpu
 ultralytics==8.3.0
@@ -23,5 +23,4 @@ deepface==0.0.99
 # Utilities
 requests==2.32.0
 python-dotenv==1.0.0
-
 
