@@ -1,0 +1,27 @@
+name: visionguard
+type: web
+routes:
+  - path: /
+    port: 8000
+ports:
+  - port: 8000
+    protocol: http
+env:
+  - name: PORT
+    value: "8000"
+  - name: PYTHON_VERSION
+    value: "3.11"
+instance_types:
+  - type: free
+    scopes:
+      - region: fra
+scalings:
+  - min: 1
+    max: 1
+    scopes:
+      - region: fra
+health_checks:
+  - protocol: http
+    port: 8000
+    path: /health
+    grace_period: 180
