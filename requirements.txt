@@ -1,18 +1,27 @@
 # VisionGuard - Production Requirements
-# Core dependencies only - let pip resolve ML sub-dependencies
+# Install with: pip install -r requirements.txt
 
-Flask
-Flask-CORS
-gunicorn
+# Web Framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+gunicorn==21.2.0
+Werkzeug==3.0.1
 
-opencv-python-headless
-numpy
-Pillow
+# Computer Vision (headless for servers)
+opencv-python-headless==4.8.1.78
+numpy==1.26.3
+Pillow==10.2.0
+scipy==1.11.4
 
+# Deep Learning
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.11.0+cpu
-ultralytics
+torch==2.1.0+cpu
+torchvision==0.16.0+cpu
+ultralytics==8.0.196
 
-deepface
-python-dotenv
+# Face Recognition
+deepface==0.0.79
 
+# Utilities
+requests==2.31.0
+python-dotenv==1.0.0
