@@ -26,20 +26,9 @@ call venv\Scripts\activate.bat
 echo Installing dependencies...
 pip install -q -r requirements.txt
 
-:: Start the server in background
+:: Start the server
 echo.
 echo Starting Flask server...
-echo.
-start /b python backend/app.py > server.log 2>&1
-
-:: Wait for server to start
-echo Waiting for server to start...
-timeout /t 3 /nobreak >nul
-
-:: Open browser
-echo Opening browser...
-start http://localhost:5000
-
 echo.
 echo ==========================================
 echo    Server running at http://localhost:5000
@@ -47,7 +36,8 @@ echo    Press Ctrl+C to stop
 echo ==========================================
 echo.
 
-:: Keep window open
-python backend/app.py
+:: Open browser after delay (in background)
+start /b cmd /c "timeout /t 5 /nobreak >nul && start http://localhost:5000"
 
-pause
+:: Start server (this blocks the window, so Ctrl+C stops it)
+python backend/app.py
