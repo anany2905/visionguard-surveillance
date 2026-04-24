@@ -1,26 +1,27 @@
-# VisionGuard - Production Requirements
+# VisionGuard - Production Requirements (Lightweight)
 # Install with: pip install -r requirements.txt
 
 # Web Framework
-Flask>=2.3.0
-Flask-CORS>=4.0.0
-gunicorn>=21.0.0
+Flask==3.1.0
+Flask-CORS==6.0.0
+gunicorn==25.0.0
 
 # Computer Vision
-opencv-python>=4.8.0
-numpy>=1.24.0
-Pillow>=9.5.0
+opencv-python-headless==4.11.0.86
+numpy==2.2.0
+Pillow==11.0.0
 
-# Deep Learning
-ultralytics>=8.0.0
-torch>=2.0.0
-torchvision>=0.15.0
-tensorflow>=2.12.0
+# Deep Learning (CPU-only, much smaller)
+--index-url https://download.pytorch.org/whl/cpu
+torch==2.6.0+cpu
+torchvision==0.21.0+cpu
+ultralytics==8.3.0
 
 # Face Recognition
-deepface>=0.0.79
+deepface==0.0.99
 
 # Utilities
-requests>=2.31.0
-python-dotenv>=1.0.0
+requests==2.32.0
+python-dotenv==1.0.0
+
 
